@@ -29,7 +29,9 @@ jobs:
     #    # client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
 
     - name: Login to Azure
-      run: az login --service-principal -u 'b6250f57-c5e4-4b45-ad54-225085634ba8' -p 'wxx8Q~kOwFV81x6w8k1.qjs3VI9AfkyfF63yvbTt' --tenant '4a161032-d6d8-4570-837b-ebb55dd3e1c3'
+      run: |
+        whoami
+        sudo az login --service-principal -u 'b6250f57-c5e4-4b45-ad54-225085634ba8' -p 'wxx8Q~kOwFV81x6w8k1.qjs3VI9AfkyfF63yvbTt' --tenant '4a161032-d6d8-4570-837b-ebb55dd3e1c3'
 
     - name: Deploy ADF to Staging
       run: |
