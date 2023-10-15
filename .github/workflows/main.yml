@@ -35,7 +35,16 @@ jobs:
         whoami
         sudo az login --service-principal -u 'b6250f57-c5e4-4b45-ad54-225085634ba8' -p 'wxx8Q~kOwFV81x6w8k1.qjs3VI9AfkyfF63yvbTt' --tenant '4a161032-d6d8-4570-837b-ebb55dd3e1c3'
 
-    - name: Deploy ADF to Staging
-      run: |
-        # Replace 'your-adf-folder' with the path to your ADF ARM templates
-        sudo az deployment group create --resource-group YourResourceGroup --template-file program42adf/ARMTemplateForFactory.json --parameters program42adf/ARMTemplateParametersForFactory.json
+    # - name: Deploy ADF to Staging
+    #   run: |
+    #     # Replace 'your-adf-folder' with the path to your ADF ARM templates
+    #     sudo az deployment group create --resource-group YourResourceGroup --template-file program42adf/ARMTemplateForFactory.json --parameters program42adf/ARMTemplateParametersForFactory.json
+
+    - name: data-factory-deploy
+      uses: Azure/data-factory-deploy-action@v1.2.0
+      with:
+        resourceGroupName: myrg
+        dataFactoryName: prohram43adf
+        armTemplateFile: program42adf/ARMTemplateForFactory.json
+        armTemplateParametersFile: program42adf/ARMTemplateParametersForFactory.json
+        #additionalParameters: # (10) Parameters which w
