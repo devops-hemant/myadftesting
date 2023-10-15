@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        ref: dev_adf_publish
 
     - name: Set up Azure CLI
       uses: azure/CLI@v1
@@ -22,4 +24,4 @@ jobs:
     - name: Deploy ADF to Staging
       run: |
         # Replace 'your-adf-folder' with the path to your ADF ARM templates
-        az deployment group create --resource-group YourResourceGroup --template-file your-adf-folder/mainTemplate.json --parameters your-adf-folder/parameters.json
+        az deployment group create --resource-group YourResourceGroup --template-file program42adf/ARMTemplateForFactory.json --parameters program42adf/ARMTemplateParametersForFactory.json
