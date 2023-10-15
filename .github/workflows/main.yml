@@ -13,11 +13,13 @@ jobs:
       with:
         ref: dev_adf_publish
 
-    - name: Set up Azure CLI
-      uses: azure/CLI@v1
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Login to Azure
-      run: az login --service-principal -u ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_ID }} -p ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_SERVICE_PRINCIPAL_TENANT_ID }}
+    # - name: Login to Azure
+    #   run: az login --service-principal -u ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_ID }} -p ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_SERVICE_PRINCIPAL_TENANT_ID }}
 
     - name: Deploy ADF to Staging
       run: |
