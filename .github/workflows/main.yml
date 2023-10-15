@@ -1,7 +1,9 @@
 name: ADF Dev to Staging
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -36,4 +38,4 @@ jobs:
     - name: Deploy ADF to Staging
       run: |
         # Replace 'your-adf-folder' with the path to your ADF ARM templates
-        az deployment group create --resource-group YourResourceGroup --template-file program42adf/ARMTemplateForFactory.json --parameters program42adf/ARMTemplateParametersForFactory.json
+        sudo az deployment group create --resource-group YourResourceGroup --template-file program42adf/ARMTemplateForFactory.json --parameters program42adf/ARMTemplateParametersForFactory.json
