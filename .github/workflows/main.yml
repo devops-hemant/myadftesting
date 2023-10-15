@@ -4,17 +4,22 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+
+    - name: Login via Az module
+      uses: azure/login@v1
       with:
-        ref: dev_adf_publish
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true
 
     - name: Azure CLI script
       uses: azure/CLI@v1
@@ -40,16 +45,6 @@ jobs:
     #   run: |
     #     # Replace 'your-adf-folder' with the path to your ADF ARM templates
     #     sudo az deployment group create --resource-group YourResourceGroup --template-file program42adf/ARMTemplateForFactory.json --parameters program42adf/ARMTemplateParametersForFactory.json
-    - name: become root
-      run: sudo -i
-
-    - name: Login via Az module
-      uses: azure/login@v1
-      with:
-        client-id: b6250f57-c5e4-4b45-ad54-225085634ba8
-        tenant-id: 4a161032-d6d8-4570-837b-ebb55dd3e1c3
-        subscription-id: 57c22230-c355-4293-8493-61057d85f0cc
-        enable-AzPSSession: true
 
     - name: data-factory-deploy
       uses: Azure/data-factory-deploy-action@v1.2.0
@@ -57,5 +52,5 @@ jobs:
         resourceGroupName: myrg
         dataFactoryName: prohram43adf
         armTemplateFile: program42adf/ARMTemplateForFactory.json
-        armTemplateParametersFile: program42adf/ARMTemplateParametersForFactory.json
+        #armTemplateParametersFile: program42adf/ARMTemplateParametersForFactory.json
         #additionalParameters: # (10) Parameters which w
