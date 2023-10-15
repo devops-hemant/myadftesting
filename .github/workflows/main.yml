@@ -20,11 +20,8 @@ jobs:
           inlineScript: |
             az -v
 
-    - name: Azure Login
-      uses: azure/login@v1
+    - name: Azure login action
       with:
-        credentials: ${{ secrets.AZURE_CREDENTIALS }}
-      env: # Or as an environment variable
         credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
     # - name: Login to Azure
