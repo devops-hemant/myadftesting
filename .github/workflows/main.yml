@@ -20,16 +20,16 @@ jobs:
           inlineScript: |
             az -v
 
-    - name: Az CLI login
-      uses: azure/login@v1
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-       # client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+    # - name: Az CLI login
+    #   uses: azure/login@v1
+    #   with:
+    #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    #    # client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
 
-    # - name: Login to Azure
-    #   run: az login --service-principal -u ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_ID }} -p ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_SERVICE_PRINCIPAL_TENANT_ID }}
+    - name: Login to Azure
+      run: az login --service-principal -u 'b6250f57-c5e4-4b45-ad54-225085634ba8' -p 'wxx8Q~kOwFV81x6w8k1.qjs3VI9AfkyfF63yvbTt' --tenant '4a161032-d6d8-4570-837b-ebb55dd3e1c3'
 
     - name: Deploy ADF to Staging
       run: |
