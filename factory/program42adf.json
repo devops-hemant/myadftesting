@@ -1,0 +1,9 @@
+{
+	"name": "program42adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "922c22d5-dc2f-404a-9825-d6821591175d",
+		"tenantId": "4a161032-d6d8-4570-837b-ebb55dd3e1c3"
+	}
+}
