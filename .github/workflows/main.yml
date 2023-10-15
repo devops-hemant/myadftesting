@@ -21,6 +21,10 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true
 
+    - name: run some commands
+      run: |
+        ls -la
+
     - name: Azure CLI script
       uses: azure/CLI@v1
       with:
