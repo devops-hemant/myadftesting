@@ -14,6 +14,8 @@ jobs:
 
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        ref: dev_adf_publish
 
     - name: Login via Az module
       uses: azure/login@v1
