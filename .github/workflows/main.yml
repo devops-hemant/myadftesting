@@ -1,0 +1,25 @@
+name: ADF Dev to Staging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Azure CLI
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.22.0
+
+    - name: Login to Azure
+      run: az login --service-principal -u ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_ID }} -p ${{ secrets.AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_SERVICE_PRINCIPAL_TENANT_ID }}
+
+    - name: Deploy ADF to Staging
+      run: |
+        # Replace 'your-adf-folder' with the path to your ADF ARM templates
+        az deployment group create --resource-group YourResourceGroup --template-file your-adf-folder/mainTemplate.json --parameters your-adf-folder/parameters.json
