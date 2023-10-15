@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"factoryName": {
-			"value": "prohram43adf"
+			"value": "program42adf"
 		},
 		"AzureBlobStoragedestination_connectionString": {
 			"value": ""
