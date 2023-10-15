@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "Copy data1",
+				"description": "excel to json",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
