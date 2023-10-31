@@ -58,4 +58,4 @@ jobs:
         dataFactoryName: prohram43adf
         armTemplateFile: program42adf/ARMTemplateForFactory.json
         armTemplateParametersFile: program42adf/ARMTemplateParametersForFactory.json
-        #additionalParameters: # (10) Parameters which w
+        additionalParameters: '"Copy Data1"="stg copy"'
