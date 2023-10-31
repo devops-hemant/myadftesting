@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "devdata1",
-				"description": "excel to json",
+				"description": "excel to json data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
